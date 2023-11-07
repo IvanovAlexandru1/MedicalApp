@@ -13,18 +13,29 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="physician_patient")
+@Entity
 public class PhysiciansPatientsMapping {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     @ManyToOne
-    @JoinColumn(name = "physician_id")
-    private PhysicianDTO physician;
+    @JoinColumn(name = "id_doctor")
+    private PhysicianDTO physicians;
 
     @ManyToOne
-    @JoinColumn(name = "patient_id")
-    private PatientDTO patient;
+    @JoinColumn(name = "cnp")
+    private PatientDTO patients;
 
     private Date date;
 
     @Enumerated(EnumType.STRING)
     private StatusEnum status;
+
+    public PhysiciansPatientsMapping(PhysicianDTO physician, PatientDTO patient, Date date, StatusEnum status) {
+        this.physicians = physician;
+        this.patients = patient;
+        this.date = date;
+        this.status = status;
+    }
 }

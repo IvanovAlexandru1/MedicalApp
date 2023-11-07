@@ -25,13 +25,8 @@ public class PhysicianDTO {
     private String email;
     private String telefon;
     private SpecializationEnum specialization;
-    @ManyToMany
-    @JoinTable(
-            name = "physician_patient",
-            joinColumns = @JoinColumn(name = "physician_id"),
-            inverseJoinColumns = @JoinColumn(name = "patient_id")
-    )
-    private Set<PatientDTO> patients;
+    @OneToMany(mappedBy = "physicians")
+    private Set<PhysiciansPatientsMapping> programare;
     public PhysicianDTO(Integer id_user, String nume, String prenume, String email, String telefon, SpecializationEnum specializationEnum) {
         this.id_user = id_user;
         this.nume = nume;

@@ -2,9 +2,7 @@ package com.example.proiectpos.controllers;
 
 import com.example.proiectpos.dto.PatientDTO;
 import com.example.proiectpos.repositories.PatientRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

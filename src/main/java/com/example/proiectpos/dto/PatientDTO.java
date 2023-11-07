@@ -16,7 +16,6 @@ import java.util.Set;
 public class PatientDTO {
     @Id
     private String cnp;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_user;
     private String nume;
     private String prenume;
@@ -25,8 +24,8 @@ public class PatientDTO {
     private String telefon;
     private Date data_nasterii;
     private boolean is_active;
-    @ManyToMany(mappedBy = "patients")
-    private Set<PhysicianDTO> physicians;
+    @OneToMany(mappedBy = "patients")
+    private Set<PhysiciansPatientsMapping> programare;
     public PatientDTO(String cnp, Integer id_user, String nume, String prenume, String email, String telefon, Date data_nasterii, boolean is_active) {
         this.cnp = cnp;
         this.id_user = id_user;
