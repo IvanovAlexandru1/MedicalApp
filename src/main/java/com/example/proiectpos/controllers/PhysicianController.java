@@ -29,7 +29,7 @@ public class PhysicianController {
         return new ResponseEntity<>(physicianRepository.findAll(), HttpStatus.OK);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<PhysicianDTO> getPatientById(@PathVariable("id") Integer id){
+    public ResponseEntity<PhysicianDTO> getPhysicianById(@PathVariable("id") Integer id){
         return new ResponseEntity<>(physicianRepository.findById(id).orElse(null),HttpStatus.OK);
     }
     @PostMapping("/addPhysician")

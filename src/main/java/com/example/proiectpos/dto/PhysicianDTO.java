@@ -1,6 +1,7 @@
 package com.example.proiectpos.dto;
 
 import com.example.proiectpos.utils.SpecializationEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,6 +27,7 @@ public class PhysicianDTO {
     private String telefon;
     private SpecializationEnum specialization;
     @OneToMany(mappedBy = "physicians")
+    @JsonIgnore
     private Set<PhysiciansPatientsMapping> programare;
     public PhysicianDTO(Integer id_user, String nume, String prenume, String email, String telefon, SpecializationEnum specializationEnum) {
         this.id_user = id_user;

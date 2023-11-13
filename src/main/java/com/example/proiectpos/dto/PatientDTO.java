@@ -1,4 +1,5 @@
 package com.example.proiectpos.dto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,6 +25,7 @@ public class PatientDTO {
     private String telefon;
     private Date data_nasterii;
     private boolean is_active;
+    @JsonIgnore
     @OneToMany(mappedBy = "patients")
     private Set<PhysiciansPatientsMapping> programare;
     public PatientDTO(String cnp, Integer id_user, String nume, String prenume, String email, String telefon, Date data_nasterii, boolean is_active) {
